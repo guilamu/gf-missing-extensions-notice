@@ -1,0 +1,24 @@
+# WordPress development
+*.log
+*.sql
+*.bak
+.htaccess
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Dependencies
+node_modules/
+vendor/
+
+# Build artifacts
+*.zip
