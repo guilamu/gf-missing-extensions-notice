@@ -4,6 +4,8 @@
 
 Alerts the administrator when a Gravity Forms form requires a missing extension (GF add-on, Gravity Perks, or any other).
 
+![Plugin Screenshot](https://github.com/guilamu/gf-missing-extensions-notice/blob/main/screenshot.png)
+
 ## Main Feature Sections
 
 ### Form JSON Scan
