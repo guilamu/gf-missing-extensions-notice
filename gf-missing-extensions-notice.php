@@ -703,3 +703,38 @@ add_action( 'admin_enqueue_scripts', array( 'GF_Missing_Extension_Notice', 'enqu
 register_deactivation_hook( GF_MISS_EXT_FILE, function () {
 	delete_transient( 'gf_missing_extensions_notice_release' );
 } );
+
+// Register with Guilamu Bug Reporter.
+add_action( 'plugins_loaded', function () {
+	if ( class_exists( 'Guilamu_Bug_Reporter' ) ) {
+		Guilamu_Bug_Reporter::register( array(
+			'slug'        => 'gf-missing-extensions-notice',
+			'name'        => 'Gravity Forms - Missing Extension Notice',
+			'version'     => GF_MISS_EXT_VERSION,
+			'github_repo' => 'guilamu/gf-missing-extensions-notice',
+		) );
+	}
+}, 20 );
+
+// Add "Report a Bug" link to the plugins list.
+add_filter( 'plugin_row_meta', function ( $links, $file ) {
+	if ( plugin_basename( GF_MISS_EXT_FILE ) !== $file ) {
+		return $links;
+	}
+
+	if ( class_exists( 'Guilamu_Bug_Reporter' ) ) {
+		$links[] = sprintf(
+			'<a href="#" class="guilamu-bug-report-btn" data-plugin-slug="gf-missing-extensions-notice" data-plugin-name="%s">%s</a>',
+			esc_attr__( 'Gravity Forms - Missing Extension Notice', 'gf-miss-ext' ),
+			esc_html__( '🐛 Report a Bug', 'gf-miss-ext' )
+		);
+	} else {
+		$links[] = sprintf(
+			'<a href="%s" target="_blank">%s</a>',
+			'https://github.com/guilamu/guilamu-bug-reporter/releases',
+			esc_html__( '🐛 Report a Bug (install Bug Reporter)', 'gf-miss-ext' )
+		);
+	}
+
+	return $links;
+}, 10, 2 );
