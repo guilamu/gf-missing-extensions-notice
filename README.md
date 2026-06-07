@@ -86,7 +86,8 @@ The plugin compares form fields to currently active fields in `GF_Fields::get_al
 │   └── Parsedown.php                 # Markdown parser for details popup
 └── languages
     ├── gf-miss-ext.pot               # Translation template file
-    └── gf-miss-ext-fr_FR.po          # French translation file
+    └── gf-miss-ext-fr_FR.po          # French translation file (source)
+    └── gf-miss-ext-fr_FR.mo          # French translation file (binary)
 ```
 
 ## Changelog
