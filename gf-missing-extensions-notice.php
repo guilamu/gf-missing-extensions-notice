@@ -12,7 +12,6 @@
  * License URI:       https://www.gnu.org/licenses/agpl-3.0.html
  * Text Domain:       gf-miss-ext
  * Domain Path:       /languages
- * Requires Plugins:  gravityforms
  * Update URI:        https://github.com/guilamu/gf-missing-extensions-notice/
  */
 
