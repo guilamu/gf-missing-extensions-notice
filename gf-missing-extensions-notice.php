@@ -8,6 +8,7 @@
  * Requires PHP:      7.4
  * Tested up to:      6.8
  * Author:            Guilamu
+ * Author URI:        https://github.com/guilamu
  * License:           AGPLv3
  * License URI:       https://www.gnu.org/licenses/agpl-3.0.html
  * Text Domain:       gf-miss-ext
@@ -720,6 +721,19 @@ add_filter( 'plugin_row_meta', function ( $links, $file ) {
 	if ( plugin_basename( GF_MISS_EXT_FILE ) !== $file ) {
 		return $links;
 	}
+
+	// "View details" thickbox link — same pattern as WordPress.org-hosted plugins.
+	$links[] = sprintf(
+		'<a href="%s" class="thickbox open-plugin-details-modal" aria-label="%s" data-title="%s">%s</a>',
+		esc_url( self_admin_url(
+			'plugin-install.php?tab=plugin-information&plugin=gf-missing-extensions-notice'
+			. '&TB_iframe=true&width=772&height=926'
+		) ),
+		/* translators: %s: Plugin name */
+		esc_attr( sprintf( __( 'More information about %s', 'gf-miss-ext' ), 'Gravity Forms - Missing Extension Notice' ) ),
+		esc_attr( 'Gravity Forms - Missing Extension Notice' ),
+		esc_html__( 'View details', 'gf-miss-ext' )
+	);
 
 	if ( class_exists( 'Guilamu_Bug_Reporter' ) ) {
 		$links[] = sprintf(
