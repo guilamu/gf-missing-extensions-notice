@@ -444,7 +444,7 @@ class GF_Missing_Extensions_Notice_GitHub_Updater {
 			. '});'
 			. '</script>';
 
-		if ( defined( 'self::REQUIRES_GF' ) ) {
+		if ( self::REQUIRES_GF ) {
 			$requires_gf_html = sprintf(
 				'<strong>%1$s</strong> %2$s',
 				esc_html__( 'Requires Gravity Forms:', self::TEXT_DOMAIN ),

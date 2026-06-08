@@ -2,7 +2,7 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gravity Forms - Missing Extension Notice 1.0.0\n"
+"Project-Id-Version: Gravity Forms - Missing Extension Notice 1.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gf-missing-extensions-notice\n"
 "POT-Creation-Date: 2026-06-06T21:07:00Z\n"
 "PO-Revision-Date: 2026-06-07 08:35+0200\n"

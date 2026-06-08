@@ -92,6 +92,10 @@ The plugin compares form fields to currently active fields in `GF_Fields::get_al
 
 ## Changelog
 
+### 1.0.1 - 2026-06-08
+- Fix GitHub updater bug where the Gravity Forms version requirement was not displayed.
+- Remove dead code functions `get_form_from_request()` and `get_requested_page()`.
+
 ### 1.0.0 - 2026-04-10
 - Initial release.
 

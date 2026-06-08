@@ -3,7 +3,7 @@
  * Plugin Name:       Gravity Forms - Missing Extension Notice
  * Plugin URI:        https://github.com/guilamu/gf-missing-extensions-notice
  * Description:       Display a warning when a Gravity Forms form requires a missing extension (GF add-on, Gravity Perks, or other).
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 5.6
  * Requires PHP:      7.4
  * Tested up to:      6.8
@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'GF_MISS_EXT_VERSION', '1.0.0' );
+define( 'GF_MISS_EXT_VERSION', '1.0.1' );
 define( 'GF_MISS_EXT_FILE', __FILE__ );
 define( 'GF_MISS_EXT_DIR', plugin_dir_path( __FILE__ ) );
 define( 'GF_MISS_EXT_URL', plugin_dir_url( __FILE__ ) );
@@ -610,26 +610,6 @@ class GF_Missing_Extension_Notice {
 		}
 	}
 
-	private static function get_form_from_request() {
-		if ( ! class_exists( 'GFAPI' ) ) {
-			return null;
-		}
-
-		$id = self::get_requested_form_id();
-		if ( $id <= 0 ) {
-			return null;
-		}
-		$form = GFAPI::get_form( $id );
-		return is_array( $form ) ? $form : null;
-	}
-
-	private static function get_requested_page() {
-		if ( ! isset( $_GET['page'] ) ) {
-			return '';
-		}
-
-		return sanitize_key( wp_unslash( $_GET['page'] ) );
-	}
 
 	private static function get_requested_form_id() {
 		if ( ! isset( $_GET['id'] ) ) {
